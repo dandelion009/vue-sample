@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    command: /bin/sh -c "cd ~/tmp ;npm run dev ;"
+    environment:
+      - NODE_ENV=development
+    build: .
+    volumes:
+      - ./src:/root/tmp/src
+    ports:
+      - "8080:8080"
