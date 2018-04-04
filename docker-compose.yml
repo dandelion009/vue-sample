@@ -7,5 +7,7 @@ services:
     build: .
     volumes:
       - ./src:/root/tmp/src
+      - ./config:/root/tmp/config
+      - ./build:/root/tmp/build
     ports:
       - "8080:8080"
