@@ -39,7 +39,7 @@ new Vue({
 		]
 	})
 ,	created() {
-		fetch( '/test/restaurants/?limit=10' ).then(
+		fetch( 'http://192.168.8.197:3000/api/test_mongo_collection?apiKey=ifna212ASFisfsjaAFFF' ).then(
 			p => p.json()
 		).then(
 			p => this.$store.commit( 'json', { json: p } )
