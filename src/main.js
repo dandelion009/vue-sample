@@ -15,7 +15,7 @@ import JsonVueEr from "json-vue-er/JsonVueEr"
 let
 Detail = {
 	components: { JsonVueEr }
-,	template: `<json-vue-er :json="$store.state.json.rows[ $route.params.idx ]"></json-vue-er>`
+,	template: `<json-vue-er :json="$store.state.json[ $route.params.idx ]"></json-vue-er>`
 }
 
 let
@@ -39,7 +39,7 @@ new Vue({
 		]
 	})
 ,	created() {
-		fetch( 'http://192.168.8.197:3000/api/test_mongo_collection?apiKey=ifna212ASFisfsjaAFFF' ).then(
+		fetch( 'http://192.168.8.197:3000/api/restaurants?apiKey=ifna212ASFisfsjaAFFF' ).then(
 			p => p.json()
 		).then(
 			p => this.$store.commit( 'json', { json: p } )
@@ -60,7 +60,7 @@ new Vue({
 			</md-toolbar>
 			<md-sidenav class="md-left" ref="sideNav">
 				<md-list>
-					<md-list-item v-for="( w, i ) in $store.state.json.rows" :key="i">
+					<md-list-item v-for="( w, i ) in $store.state.json" :key="i">
 						<router-link :to="'/detail/' + i" @click.native="$refs.sideNav.close()">{{ i + ':' +  w.name }}</router-link>
 					</md-list-item>
 				</md-list>
